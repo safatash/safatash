@@ -224,7 +224,7 @@ a.post .readmore { font-family: var(--mono); font-size: .8rem; color: var(--acce
 /* expertise */
 .expertise { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding-block: 36px; margin-bottom: clamp(56px, 8vw, 96px); display: grid; grid-template-columns: 180px 1fr; gap: 24px 40px; }
 .expertise h2 { font-family: var(--mono); font-weight: 500; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 6px 0 0; }
-.exp-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; }
+.exp-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px; }
 .exp-label { font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
 .exp-group ul { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 6px; }
 .exp-group li { font-family: var(--display); font-weight: 600; font-size: 1.15rem; line-height: 1.2; letter-spacing: -.01em; }
