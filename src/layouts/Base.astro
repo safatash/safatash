@@ -11,7 +11,7 @@ interface Props {
   published?: Date;
 }
 const { title, description = SITE_DESCRIPTION, type = 'website', published } = Astro.props;
-const fullTitle = title ? `${title} | ${SITE_TITLE}` : `${SITE_TITLE} | Websites and the AI that runs them`;
+const fullTitle = title ? `${title} | ${SITE_TITLE}` : `${SITE_TITLE} | Web Developer & WordPress Expert in Fairfax, VA`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL('/og.png', Astro.site);
 const personLd = {
@@ -23,6 +23,18 @@ const personLd = {
   jobTitle: 'Web Director & Managing Partner',
   worksFor: { '@type': 'Organization', name: 'Nova Advertising', url: 'https://novaadvertising.com' },
   address: { '@type': 'PostalAddress', addressLocality: 'Fairfax', addressRegion: 'VA', addressCountry: 'US' },
+  homeLocation: { '@type': 'Place', name: 'Fairfax, Virginia' },
+  description: 'Web developer and WordPress expert in Fairfax, VA, building websites, custom WordPress plugins and AI automation for businesses in Northern Virginia.',
+  knowsAbout: ['Web development', 'UX/UI design', 'WordPress', 'WordPress multisite', 'Custom WordPress plugins', 'Astro', 'Static sites', 'CMS integration', 'SEO', 'Local SEO', 'GEO', 'AEO', 'Marketing automation', 'Agentic workflows', 'AI automation', 'Model Context Protocol', 'SaaS'],
+  email: 'mailto:safatash@gmail.com',
+};
+const siteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Safa Damouzehtash',
+  url: 'https://safatash.com',
+  inLanguage: 'en-US',
+  author: { '@type': 'Person', name: 'Safa Damouzehtash' },
 };
 ---
 <!doctype html>
@@ -36,6 +48,11 @@ const personLd = {
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" title={`${SITE_TITLE} blog`} href="/rss.xml" />
+    <meta name="geo.region" content="US-VA" />
+    <meta name="geo.placename" content="Fairfax, Virginia" />
+    <meta name="geo.position" content="38.8462;-77.3064" />
+    <meta name="ICBM" content="38.8462, -77.3064" />
+    <meta property="og:locale" content="en_US" />
     <meta name="theme-color" content="#eef1f5" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0b121b" media="(prefers-color-scheme: dark)" />
     <meta property="og:type" content={type} />
@@ -50,6 +67,7 @@ const personLd = {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" />
     <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(siteLd)} />
     <slot name="head" />
   </head>
   <body>

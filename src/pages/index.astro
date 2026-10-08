@@ -15,7 +15,7 @@ const cards = [
 <Base>
 <header class="hero" id="top">
     <div>
-      <div class="kicker"><span class="dot"></span> Fairfax, VA · Web Director at Nova Advertising</div>
+      <div class="kicker"><span class="dot"></span> Web developer in Fairfax, VA · Web Director at Nova Advertising</div>
       <h1>I build websites, and the <em>AI</em> that keeps them running.</h1>
       <p class="lede">I'm Safa Damouzehtash. For <strong>30 years</strong> I've been designing and building for the web. These days I build products and AI tools that let a small team look after <strong>hundreds of websites</strong> like a much bigger one.</p>
       <div class="hero-cta">
@@ -219,6 +219,14 @@ const cards = [
   </div>
   <div class="posts">
     {cards.map((c, i) => <PostCard {...c} feature={i === 0} />)}
+  </div>
+</section>
+
+<section class="about" id="about" aria-labelledby="about-h">
+  <h2 id="about-h">A web developer in Fairfax, VA</h2>
+  <div class="about-body">
+    <p>I live and work in Fairfax, Virginia, and I've spent 30 years building for the web, much of it for businesses here in Northern Virginia and the DC area. As Web Director at Nova Advertising, I look after more than 500 WordPress sites for local businesses, from dental and medical practices to home services, law firms and multi-location brands.</p>
+    <p>If you're a business owner in Fairfax, Reston, Arlington, McLean, Tysons or anywhere in Northern Virginia and need a WordPress expert, a custom plugin, an Astro site, local SEO or an AI workflow that saves your team hours, I'd be glad to talk.</p>
   </div>
 </section>
 

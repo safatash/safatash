@@ -263,3 +263,10 @@ a.post .readmore { font-family: var(--mono); font-size: .8rem; color: var(--acce
 
 /* NovaConnect MCP mock */
 .log.mcp { width: 100%; max-width: 400px; transform: none; }
+
+/* about / local */
+.about { border-top: 1px solid var(--line); padding-block: clamp(48px, 7vw, 80px); display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 24px 56px; }
+.about h2 { font-family: var(--display); font-weight: 800; font-size: clamp(1.8rem, 3.6vw, 2.6rem); letter-spacing: -.03em; line-height: 1.05; margin: 0; text-wrap: balance; }
+.about-body { display: grid; gap: 14px; }
+.about-body p { margin: 0; color: var(--muted); font-size: 1.1rem; max-width: 60ch; }
+@media (max-width: 860px) { .about { grid-template-columns: 1fr; } }
