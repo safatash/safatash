@@ -1,0 +1,161 @@
+---
+import Base from '../layouts/Base.astro';
+import Contact from '../components/Contact.astro';
+import PostCard from '../components/PostCard.astro';
+import Expertise from '../components/Expertise.astro';
+import { getPublishedPosts } from '../lib/posts';
+import { upcoming } from '../data/upcoming';
+
+const posts = await getPublishedPosts();
+const cards = [
+  ...posts.map((p) => ({ title: p.data.title, description: p.data.description, tag: p.data.tag, href: `/blog/${p.id}/`, date: p.data.pubDate })),
+  ...upcoming,
+].slice(0, 5);
+---
+<Base>
+<header class="hero" id="top">
+    <div>
+      <div class="kicker"><span class="dot"></span> Fairfax, VA · Web Director at Nova Advertising</div>
+      <h1>I build websites, and the <em>AI</em> that keeps them running.</h1>
+      <p class="lede">I'm Safa Damouzehtash. For <strong>30 years</strong> I've been designing and building for the web. These days I build products and AI tools that let a small team look after <strong>hundreds of websites</strong> like a much bigger one.</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#work">See the work</a>
+        <a class="btn ghost" href="/blog/">Read the blog</a>
+      </div>
+      <div class="years">
+        <div><b>30</b><span>years on the web</span></div>
+        <div><b>300+</b><span>WordPress sites looked after</span></div>
+        <div><b>1,200+</b><span>Nova clients since 2009</span></div>
+      </div>
+    </div>
+
+    <div class="log" aria-label="Example of the Nova Support agent at work">
+      <div class="log-head">
+        <div class="lights"><i></i><i></i><i></i></div>
+        <span>nova-support · agent</span>
+      </div>
+      <ol id="log">
+        <li><span class="ic">✓</span><span>Updated phone number in site footer</span><span class="t">09:02</span></li>
+        <li><span class="ic">✓</span><span>Added new team member to About page</span><span class="t">09:14</span></li>
+        <li><span class="ic">✓</span><span>Site down alert → back online, client notified</span><span class="t">09:31</span></li>
+        <li><span class="ic">✓</span><span>Swapped homepage hero image, cleared cache</span><span class="t">09:47</span></li>
+        <li class="run"><span class="ic">●</span><span>Replying to ticket… <span class="caret"></span></span><span class="t">now</span></li>
+      </ol>
+      <div class="log-foot">Illustrative example of the agent's work</div>
+    </div>
+  </header>
+
+<Expertise />
+
+<section class="work" id="work" aria-labelledby="work-h">
+    <div class="section-head">
+      <h2 id="work-h">Things I've built</h2>
+      <p>Products, platforms and sites, from idea to launch.</p>
+    </div>
+
+    <article class="panel">
+      <div class="copy">
+        <span class="tag">Product · SaaS</span>
+        <h3>WeHearYou</h3>
+        <p class="pitch">Get more reviews, answer every one of them, and show off the best.</p>
+        <p>A review-management platform for local businesses like plumbers, dentists, med spas and the agencies behind them. It asks customers for reviews and video testimonials by text, email or QR code. It drafts AI replies to Google, Facebook and Yelp reviews in one inbox, and puts the best reviews on the business's website. Unhappy customers can reach the owner privately first, and reviews are never filtered.</p>
+        <div class="links">
+          <a href="https://wehearyou.online" target="_blank" rel="noopener">wehearyou.online ↗</a>
+          <a href="https://wehearyou.app" target="_blank" rel="noopener">wehearyou.app ↗</a>
+        </div>
+        <span class="stack">Product · brand · copy · UX · design · development</span>
+      </div>
+      <div class="visual" aria-hidden="true">
+        <div class="wh">
+          <span class="badge"><span class="stars">★★★★★</span> 4.9 on Google</span>
+          <div class="review">
+            <div class="who"><span class="avatar">JM</span> Jordan M.</div>
+            <div class="stars">★★★★★</div>
+            <p>Showed up on time and had the leak fixed in under an hour. Would call again.</p>
+          </div>
+          <div class="reply"><span class="lbl">AI DRAFT · READY TO POST</span>Thanks, Jordan! Glad we could get that leak sorted fast. We're here whenever you need us.</div>
+        </div>
+        <span class="note">SAMPLE WIDGET</span>
+      </div>
+    </article>
+
+    <article class="panel flip">
+      <div class="copy">
+        <span class="tag">Internal platform · AI</span>
+        <h3>Nova Support</h3>
+        <p class="pitch">One place to keep 300+ WordPress sites healthy, with an AI agent that does the work.</p>
+        <p>Clients sign in with an emailed link and send in website requests. An agent built on the Claude API picks up each request, makes the change on the live site and reports back. Uptime monitoring alerts the team the moment a site goes down.</p>
+        <div class="replaces">Replaced
+          <span class="chip">Freshdesk</span>
+          <span class="chip">InfiniteWP</span>
+          <span class="chip">Jetpack</span>
+        </div>
+        <div class="links"><a href="https://nova-wp-agent.vercel.app/login" target="_blank" rel="noopener">nova-wp-agent.vercel.app ↗</a></div>
+        <span class="stack">Next.js · Vercel · Claude API — concept, architecture, design &amp; build</span>
+      </div>
+      <div class="visual" aria-hidden="true">
+        <div class="tix">
+          <div class="tix-head"><span>Requests</span><span>today</span></div>
+          <ul>
+            <li>Update hours for the holidays<span class="site">dental-practice.com</span><span class="pill done">done by agent</span></li>
+            <li>Add new service page<span class="site">plumbing-co.com</span><span class="pill work">agent working</span></li>
+            <li>Site went down<span class="site">roofing-co.com</span><span class="pill up">back up · 2 min</span></li>
+            <li>Replace staff photo<span class="site">law-firm.com</span><span class="pill done">done by agent</span></li>
+          </ul>
+        </div>
+        <span class="note">SAMPLE VIEW</span>
+      </div>
+    </article>
+
+    <article class="panel">
+      <div class="copy">
+        <span class="tag">Agency website</span>
+        <h3>Nova Advertising</h3>
+        <p class="pitch">A site that turns service-business owners into leads.</p>
+        <p>The home of a Fairfax, VA web design and local SEO agency that has served more than 1,200 clients since 2009. It has clear services, case studies with real results and a page for each industry the agency serves.</p>
+        <div class="links"><a href="https://novaadvertising.com" target="_blank" rel="noopener">novaadvertising.com ↗</a></div>
+        <span class="stack">Web direction · design · build</span>
+      </div>
+      <div class="visual" aria-hidden="true">
+        <div class="browser">
+          <div class="bar"><i></i><i></i><i></i><span class="url">novaadvertising.com</span></div>
+          <div class="site-body">
+            <h4>Web Design &amp; SEO for Service Businesses in Northern Virginia</h4>
+            <span class="fake-btn">Get a free consultation</span>
+            <div class="kpis">
+              <div><b>+120%</b><span>qualified organic traffic</span></div>
+              <div><b>+78%</b><span>inquiries</span></div>
+              <div><b>1,200+</b><span>clients served</span></div>
+            </div>
+          </div>
+        </div>
+        <span class="note">FROM THE DASG CASE STUDY</span>
+      </div>
+    </article>
+  </section>
+
+<section class="blog" id="blog" aria-labelledby="blog-h">
+  <div class="section-head">
+    <h2 id="blog-h">Blog</h2>
+    <p>Lessons from 30 years of building websites, and from the AI tools I'm building now. <a href="/blog/">All posts →</a></p>
+  </div>
+  <div class="posts">
+    {cards.map((c, i) => <PostCard {...c} feature={i === 0} />)}
+  </div>
+</section>
+
+<Contact />
+</Base>
+
+<script>
+  const items = document.querySelectorAll('#log li');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && items.length) {
+    let i = 0;
+    setInterval(() => {
+      items.forEach((li) => li.classList.remove('on'));
+      items[i % items.length].classList.add('on');
+      i++;
+    }, 1400);
+  }
+</script>

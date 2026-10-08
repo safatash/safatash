@@ -1,0 +1,31 @@
+---
+import { EMAIL } from '../consts';
+---
+<section class="contact" id="contact" aria-labelledby="contact-h">
+  <h2 id="contact-h">Have something you want built?</h2>
+  <div class="email-row">
+    <span class="email" data-email>{EMAIL}</span>
+    <button type="button" class="btn ghost" data-copy>Copy email</button>
+    <a class="btn primary" href={`mailto:${EMAIL}`}>Let's talk →</a>
+  </div>
+</section>
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const el = btn.parentElement?.querySelector('[data-email]');
+      if (!el) return;
+      try {
+        await navigator.clipboard.writeText(el.textContent ?? '');
+        btn.textContent = 'Copied';
+      } catch {
+        const r = document.createRange();
+        r.selectNodeContents(el);
+        const s = getSelection();
+        s?.removeAllRanges();
+        s?.addRange(r);
+        btn.textContent = 'Selected';
+      }
+      setTimeout(() => (btn.textContent = 'Copy email'), 1800);
+    });
+  });
+</script>

@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  tag: string;
+  href?: string;
+  date?: Date;
+  feature?: boolean;
+}
+const { title, description, tag, href, date, feature = false } = Astro.props;
+const Tag = href ? 'a' : 'div';
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+---
+<Tag class:list={['post', { feature }]} href={href}>
+  <div class="meta">
+    <span>{tag}</span>
+    {date ? <time class="date" datetime={date.toISOString()}>{fmt(date)}</time> : <span class="soon">Coming soon</span>}
+  </div>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  {href && <span class="readmore">Read the post →</span>}
+</Tag>

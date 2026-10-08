@@ -1,0 +1,15 @@
+---
+const path = Astro.url.pathname;
+const isBlog = path.startsWith('/blog');
+---
+<nav aria-label="Main">
+  <a class="mark" href="/">
+    <img class="avatar-img" src="/safa.jpg" alt="Safa Damouzehtash" width="40" height="40" />
+    <span class="mark-text">safatash<span>.</span></span>
+  </a>
+  <div class="navlinks">
+    <a href="/#work">Work</a>
+    <a href="/blog/" aria-current={isBlog ? 'page' : undefined}>Blog</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</nav>

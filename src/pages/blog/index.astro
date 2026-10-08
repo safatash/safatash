@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import Contact from '../../components/Contact.astro';
+import { getPublishedPosts } from '../../lib/posts';
+import { upcoming } from '../../data/upcoming';
+
+const posts = await getPublishedPosts();
+---
+<Base title="Blog" description="Notes from Safa Damouzehtash on websites, WordPress, security, and the AI tools that keep sites running.">
+  <header class="page-head">
+    <span class="tag">Blog</span>
+    <h1>Notes from 30 years on the web</h1>
+    <p>What I'm learning building websites, running 300+ WordPress sites, and putting AI to work for small teams.</p>
+  </header>
+  <section class="blog">
+    <div class="posts">
+      {posts.map((p, i) => (
+        <PostCard title={p.data.title} description={p.data.description} tag={p.data.tag} href={`/blog/${p.id}/`} date={p.data.pubDate} feature={i === 0} />
+      ))}
+      {upcoming.map((u) => <PostCard {...u} />)}
+    </div>
+  </section>
+  <Contact />
+</Base>

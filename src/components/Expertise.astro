@@ -1,0 +1,20 @@
+---
+const groups = [
+  { label: 'Design', items: ['UX/UI design'] },
+  { label: 'WordPress', items: ['WordPress', 'Custom WP plugins', 'WP consultation'] },
+  { label: 'Modern web', items: ['Astro sites', 'Static sites', 'CMS integration'] },
+  { label: 'Growth', items: ['SEO', 'GEO', 'AEO', 'Marketing automation'] },
+  { label: 'Product', items: ['SaaS'] },
+];
+---
+<section class="expertise" aria-labelledby="expertise-h">
+  <h2 id="expertise-h">What I do</h2>
+  <div class="exp-grid">
+    {groups.map((g) => (
+      <div class="exp-group">
+        <span class="exp-label">{g.label}</span>
+        <ul>{g.items.map((i) => <li>{i}</li>)}</ul>
+      </div>
+    ))}
+  </div>
+</section>
