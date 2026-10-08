@@ -260,3 +260,6 @@ a.post .readmore { font-family: var(--mono); font-size: .8rem; color: var(--acce
 .finder-list li { display: flex; justify-content: space-between; gap: 10px; padding: 10px 14px; border-top: 1px solid var(--line); font-size: .85rem; }
 .finder-list li:first-child { background: var(--accent-soft); }
 .finder-list span { font-family: var(--mono); font-size: .72rem; color: var(--accent); white-space: nowrap; align-self: center; }
+
+/* NovaConnect MCP mock */
+.log.mcp { width: 100%; max-width: 400px; transform: none; }
