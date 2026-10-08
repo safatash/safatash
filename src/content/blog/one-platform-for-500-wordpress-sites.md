@@ -5,7 +5,7 @@ tag: AI · Operations
 pubDate: 2026-10-07
 ---
 
-At Nova Advertising, my team looks after more than 1,200 client WordPress sites. Every one of them needs small changes all the time: new hours for the holidays, a new staff photo, a phone number in the footer, a page for a new service.
+At Nova Advertising, my team looks after more than 500 client WordPress sites. Every one of them needs small changes all the time: new hours for the holidays, a new staff photo, a phone number in the footer, a page for a new service.
 
 For years we handled all of this with three tools that didn't talk to each other:
 

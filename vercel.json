@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/blog/one-platform-for-1200-wordpress-sites", "destination": "/blog/one-platform-for-500-wordpress-sites/", "permanent": true },
+    { "source": "/blog/one-platform-for-1200-wordpress-sites/", "destination": "/blog/one-platform-for-500-wordpress-sites/", "permanent": true }
+  ]
+}
